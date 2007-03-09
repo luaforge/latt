@@ -1,0 +1,19 @@
+LATT (Lua Automated Testing Tool) 1.0
+
+INSTALATTION
+============
+
+Run make in the LATT_HOME directory. If you want, change LUA_HOME in the config file.
+
+
+EXAMPLES
+========
+
+To run the examples, you can enter the src directory and run:
+lua latt/ConsoleTestRunner.lua ../examples/<test_file_name>
+
+
+CREDITS
+=======
+
+Rodrigo Carneiro Henrique (rodrigochenrique (at) gmail (dot) com)

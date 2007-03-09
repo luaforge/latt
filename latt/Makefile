@@ -1,0 +1,5 @@
+include config
+
+install:
+	${UNINSTALL_COMMAND} ${INSTALL_PATH}/${PROJECT_NAME}
+	${INSTALL_COMMAND} src/${PROJECT_NAME} ${INSTALL_PATH}
