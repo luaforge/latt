@@ -16,7 +16,11 @@ function main()
   dofile(arg[1])
 
   local testRunner = TestRunner{suite = Suite}
-  local result = testRunner:run()
+  local status, result = pcall(testRunner.run, testRunner)
+  if not status then
+    print(result)
+    return
+  end
   local viewer = ConsoleResultViewer{result = result}
   viewer:show()
 end

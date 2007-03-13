@@ -5,4 +5,6 @@ PROJECT_NAME=latt
 install:
 	rm -rf ${INSTALL_PATH}
 	mkdir -p ${INSTALL_PATH}
-	cp -R lua/${PROJECT_NAME}/*.lua ${INSTALL_PATH}
+	mkdir -p ${INSTALL_PATH}/extras
+	cp lua/${PROJECT_NAME}/*.lua ${INSTALL_PATH}
+	cp lua/${PROJECT_NAME}/extras/*.lua ${INSTALL_PATH}/extras
