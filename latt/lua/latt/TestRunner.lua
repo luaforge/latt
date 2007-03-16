@@ -13,28 +13,24 @@ local TestSuite = require "latt.TestSuite"
 
 module("latt.TestRunner", oop.class)
 
+function __init(self, suite)
+  return oop.rawnew(self, { suite = suite, })
+end
+
 function run(self)
-  if not self.suite then
-    error("Suite not found !!!")
-  end
   local testCases = {}
   for testCaseName, testCase in pairs(self.suite) do
     if (string.sub(testCaseName, 1, 4) == "Test") and (type(testCase) == "table") then
       local tests = {}
         for testName, test in pairs(testCase) do
           if (string.sub(testName, 1, 4) == "test") and (type(test) == "function") then
-            table.insert(tests, Test{name = testName, test = test,
-                testCase = testCase})
+            table.insert(tests, Test(testName, test, testCase))
           end
         end
-        table.insert(testCases, TestCase{name = testCaseName,
-            testCase = testCase, tests = tests,})
+        table.insert(testCases, TestCase(testCaseName, testCase, tests))
     end
   end
 
-  local suite = TestSuite{
-    name = self.suite.name,
-    testCases = testCases,
-  }
+  local suite = TestSuite(self.suite.name, testCases)
   return suite:run()
 end

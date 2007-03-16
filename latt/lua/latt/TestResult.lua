@@ -5,11 +5,16 @@ local oop = require "loop.base"
 
 module("latt.TestResult", oop.class)
 
-function startTestSuite(self, suiteName)
-  self.suiteName = suiteName
-  self.testCounter = 0
-  self.failureCounter = 0
-  self.failures = {}
+function __init(self, suiteName)
+  return oop.rawnew(self, {
+    suiteName = suiteName,
+    testCounter = 0,
+    failureCounter = 0,
+    failures = {},
+  })
+end
+
+function startTestSuite(self)
   self.startTime = os.time()
 end
 

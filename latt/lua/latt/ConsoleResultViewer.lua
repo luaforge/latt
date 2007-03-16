@@ -7,6 +7,10 @@ local oop = require "loop.base"
 
 module("latt.ConsoleResultViewer", oop.class)
 
+function __init(self, result)
+  return oop.rawnew(self, { result = result, })
+end
+
 function show(self)
   print("==============================================")
   print("LATT (Lua Automated Testing Tool) version 1.0\n")
