@@ -1,14 +1,15 @@
-local pcall = pcall
 local unpack = unpack
 local error = error
 local tostring = tostring
 
 local oop = require "loop.base"
 
+local latt = latt
+
 module("latt.Check", oop.class)
 
 function assertError(f, ...)
-  local success = pcall(f, unpack(arg))
+  local success = latt.pcall(f, unpack(arg))
   if success then
     error("Function shouldn't run successfully.", 2)
   end

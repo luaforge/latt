@@ -1,6 +1,6 @@
-local pcall = pcall
-
 local oop = require "loop.base"
+
+local latt = latt
 
 module("latt.Test", oop.class)
 
@@ -10,6 +10,6 @@ end
 
 function run(self, result)
   result:startTest(self.name)
-  local _, errorMessage = pcall(self.test, self.testCase)
+  local _, errorMessage = latt.pcall(self.test, self.testCase)
   result:stopTest(errorMessage)
 end

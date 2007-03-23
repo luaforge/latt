@@ -3,6 +3,9 @@ if #arg ~= 1 then
   os.exit(1)
 end
 
+latt = {}
+latt.pcall = pcall
+
 dofile(arg[1])
 if not Suite then
   error("Suite not found !!!")

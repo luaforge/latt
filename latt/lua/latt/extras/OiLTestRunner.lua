@@ -3,21 +3,22 @@ if #arg ~= 1 then
   os.exit(1)
 end
 
+require "oil"
+
+latt = {}
+latt.pcall = oil.pcall
+
 dofile(arg[1])
 if not Suite then
   error("Suite not found !!!")
 end
-
-require "oil"
-
-pcall = oil.pcall
 
 local TestRunner = require("latt.TestRunner")
 local ConsoleResultViewer = require("latt.ConsoleResultViewer")
 
 function runTest()
   local testRunner = TestRunner(Suite)
-  local status, result = pcall(testRunner.run, testRunner)
+  local status, result = latt.pcall(testRunner.run, testRunner)
   if not status then
     print(result)
     return
@@ -29,7 +30,7 @@ end
 function main()
   oil.newthread(oil.run)
 
-  local status, result = pcall(runTest)
+  local status, result = latt.pcall(runTest)
   if not status then
     print(result)
   end
