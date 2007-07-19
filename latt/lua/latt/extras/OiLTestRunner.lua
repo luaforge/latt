@@ -3,6 +3,8 @@ if #arg ~= 1 then
   os.exit(1)
 end
 
+package.loaded["oil.component"] = require "loop.component.wrapped"
+package.loaded["oil.port"]      = require "loop.component.intercepted"
 require "oil"
 
 latt = {}
