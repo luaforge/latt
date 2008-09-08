@@ -3,9 +3,10 @@ if #arg ~= 1 then
   os.exit(1)
 end
 
-package.loaded["oil.component"] = require "loop.component.wrapped"
-package.loaded["oil.port"]      = require "loop.component.intercepted"
 require "oil"
+
+local orb = oil.init {flavor = "intercepted;corba;typed;cooperative;base",}
+oil.orb = orb
 
 latt = {}
 latt.pcall = oil.pcall
