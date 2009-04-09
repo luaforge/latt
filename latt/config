@@ -1,0 +1,4 @@
+DEVELOPER_NAME=rhenrique
+VERSION=1.1.0
+EXPORT_DIR=exported
+LUA_SHAREDIR=${LUA51}/share/5.1
